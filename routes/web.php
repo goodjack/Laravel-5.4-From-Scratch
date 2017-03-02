@@ -12,5 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+
+    // 第一種
+    // return view('welcome', [
+    //   'name' => 'Laracasts',
+    //   'age' => 3
+    // ]);
+
+    // 第二種
+    // return view('welcome')->with('name', 'World');
+
+    // 第三種
+    // $name = 'Jeffrey';
+    // return view('welcome', ['name' => $name]);
+
+    // 第四種
+    $name = 'Jeffrey';
+    $age = 31;
+    // return view('welcome', compact('name', 'age'));
+
+    $tasks = [
+      'Go to the store',
+      'Finish my screencast',
+      'Cleen the house'
+    ];
+
+    return view('welcome', compact('name', 'age', 'tasks'));
 });
