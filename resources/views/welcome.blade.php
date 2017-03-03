@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hello, <?= $name ?>
+                    Hello
                 </div>
 
                 <div class="links">
@@ -88,9 +88,9 @@
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <br>
+                    <br><br>
                     @foreach ($tasks as $task)
-                      <li>{{ $task }}</li>
+                      <li>{{ $task->body }}</li>
                     @endforeach
                 </div>
             </div>
