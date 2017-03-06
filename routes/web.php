@@ -1,5 +1,7 @@
 <?php
 
+use App\Task;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,7 +46,9 @@
 Route::get('/tasks', function () {
     // $tasks = DB::table('tasks')->get();
     // $tasks = DB::table('tasks')->where('created_at', '>=', '2017-3-3 08:00')->get();
-    $tasks = DB::table('tasks')->latest()->get();
+    // $tasks = DB::table('tasks')->latest()->get();
+
+    $tasks = Task::all();
 
     // return $tasks; // JSON
     return view('tasks.index', compact('tasks'));
@@ -53,8 +57,10 @@ Route::get('/tasks', function () {
 Route::get('/tasks/{task}', function ($id) {
     // dd($id); // The dd function dumps the given variables and ends execution of the script.
 
-    $task = DB::table('tasks')->find($id);
+    // $task = DB::table('tasks')->find($id);
     // dd($task);
+
+    $task = Task::find($id);
 
     // return view('tasks/show', compact('tasks'));
     return view('tasks.show', compact('task'));
